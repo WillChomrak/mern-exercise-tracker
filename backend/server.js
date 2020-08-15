@@ -15,15 +15,11 @@ if (process.env.NODE_ENV === "production") {
 }
 
 // const uri = process.env.ATLAS_URI;
-mongoose.connect(
-  process.env.MONGODB_URI ||
-    "mongodb://user:kNqU7VV@F!QqY53@ds049945.mlab.com:49945/heroku_n7nbj9v5",
-  {
-    useNewUrlParser: true,
-    useCreateIndex: true,
-    useUnifiedTopology: true,
-  }
-);
+mongoose.connect(process.env.MONGODB_URI || process.env.ATLAS_URI, {
+  useNewUrlParser: true,
+  useCreateIndex: true,
+  useUnifiedTopology: true,
+});
 const connection = mongoose.connection;
 connection.once("open", () => {
   console.log("MongoDB database connection established successfully");
