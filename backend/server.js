@@ -2,7 +2,7 @@ const express = require("express");
 const cors = require("cors");
 const mongoose = require("mongoose");
 
-require("dotenv").config();
+// require("dotenv").config();
 
 const app = express();
 const port = process.env.PORT || 5000;
@@ -15,7 +15,7 @@ if (process.env.NODE_ENV === "production") {
 }
 
 // const uri = process.env.ATLAS_URI;
-mongoose.connect(process.env.MONGODB_URI || process.env.ATLAS_URI, {
+mongoose.connect(process.env.MONGODB_URI, {
   useNewUrlParser: true,
   useCreateIndex: true,
   useUnifiedTopology: true,
