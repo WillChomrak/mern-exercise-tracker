@@ -16,7 +16,7 @@ if (process.env.NODE_ENV === "production") {
 
 // const uri = process.env.ATLAS_URI;
 mongoose.connect(
-  process.env.ATLAS_URI ||
+  process.env.MLAB_URI ||
     "mongodb://user:kNqU7VV@F!QqY53@ds049945.mlab.com:49945/heroku_n7nbj9v5",
   {
     useNewUrlParser: true,
