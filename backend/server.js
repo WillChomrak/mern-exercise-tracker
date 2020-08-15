@@ -10,12 +10,20 @@ const port = process.env.PORT || 5000;
 app.use(cors());
 app.use(express.json());
 
-const uri = process.env.ATLAS_URI;
-mongoose.connect(uri, {
-  useNewUrlParser: true,
-  useCreateIndex: true,
-  useUnifiedTopology: true,
-});
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static("build"));
+}
+
+// const uri = process.env.ATLAS_URI;
+mongoose.connect(
+  process.env.ATLAS_URI ||
+    "mongodb://user:kNqU7VV@F!QqY53@ds049945.mlab.com:49945/heroku_n7nbj9v5",
+  {
+    useNewUrlParser: true,
+    useCreateIndex: true,
+    useUnifiedTopology: true,
+  }
+);
 const connection = mongoose.connection;
 connection.once("open", () => {
   console.log("MongoDB database connection established successfully");
