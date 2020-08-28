@@ -20,7 +20,7 @@ if (process.env.NODE_ENV === "production") {
 }
 
 // const uri = process.env.ATLAS_URI;
-mongoose.connect(process.env.MONGODB_URI, {
+mongoose.connect(MONGODB_URI, {
   useNewUrlParser: true,
   useCreateIndex: true,
   useUnifiedTopology: true,
